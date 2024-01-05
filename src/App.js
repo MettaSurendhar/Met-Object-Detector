@@ -13,7 +13,7 @@ function App() {
 	// Main function
 	const runCoco = async () => {
 		const net = await cocossd.load();
-		console.log('Handpose model loaded.');
+
 		//  Loop and detect hands
 		setInterval(() => {
 			detect(net);
@@ -42,17 +42,12 @@ function App() {
 
 			// Make Detections
 			const obj = await net.detect(video);
-			// console.log(obj);
 
 			// Draw mesh
 			const ctx = canvasRef.current.getContext('2d');
 			drawRect(obj, ctx);
 		}
 	};
-
-	// useEffect(() => {
-	// 	runCoco();
-	// }, []);
 
 	runCoco();
 
@@ -84,7 +79,7 @@ function App() {
 						left: 0,
 						right: 0,
 						textAlign: 'center',
-						zIndex: 8,
+						zIndex: 10,
 						width: 640,
 						height: 480,
 					}}
